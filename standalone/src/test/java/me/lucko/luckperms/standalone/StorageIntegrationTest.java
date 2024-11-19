@@ -467,6 +467,10 @@ public class StorageIntegrationTest {
             }
 
             String actual = Files.readString(dir.resolve(Paths.get(file)));
+            // Normalize line endings
+            expected = expected.replace("\r\n", "\n");
+            actual = actual.replace("\r\n", "\n");
+
             assertEquals(expected.trim(), actual.trim());
         }
 
